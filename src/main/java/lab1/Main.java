@@ -13,7 +13,7 @@ public class Main {
     static void task2() {
         /*В Java при делении целого числа на целое число всегда получается целое число.
         Остаток от деления при этом отбрасывается. Или же можно сказать, что отбрасывается дробная часть.*/
-        int res1 = (46 + 10) * (10 / 3);
+        double res1 = (46 + 10) * ((double) 10 / 3);
         System.out.println(res1);
 
         int res2 = (29) * (4) * (-15);
@@ -22,7 +22,7 @@ public class Main {
 
     static void task3() {
         int number = 10500;
-        int result = (number/10)/10;
+        double result = ((double) number / 10) / 10;
         System.out.println(result);
     }
 

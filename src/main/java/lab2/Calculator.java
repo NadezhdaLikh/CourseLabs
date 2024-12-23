@@ -42,19 +42,18 @@ public class Calculator {
     }
 
     // Деление
-    public int div(int x, int y) {
+    public double div(int x, int y) {
         if (y == 0) throw new ArithmeticException("Делить на ноль нельзя!");
-        return x / y;
+        return (double) x / y;
     }
 
-    public long div(long x, long y) {
+    public double div(long x, long y) {
         if (y == 0) throw new ArithmeticException("Делить на ноль нельзя!");
-        return x / y;
+        return (double) x / y;
     }
 
     public double div(double x, double y) {
         if (y == 0) throw new ArithmeticException("Делить на ноль нельзя!");
-        return Math.round((x / y) * 1000.0) / 1000.0; // Округление до трех знаков после запятой
-        // Math.round() возвращает ближайшее к вещественному (float или double) аргументу целое (int или long) число
+        return x / y;
     }
 }

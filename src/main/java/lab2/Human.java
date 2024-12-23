@@ -8,6 +8,30 @@ public class Human {
     private boolean isMarried;
     private boolean hasKids;
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setSex(char sex) {
+        this.sex = sex;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setIsMarried(boolean married) {
+        isMarried = married;
+    }
+
+    public void setHasKids(boolean hasKids) {
+        this.hasKids = hasKids;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -30,6 +54,15 @@ public class Human {
 
     public boolean getHasKids() {
         return hasKids;
+    }
+
+    public String toString() {
+        return "First name: " + this.firstName + ",\n" +
+                "Last name: " + this.lastName + ",\n" +
+                "Sex: " + this.sex + ",\n" +
+                "Age: " + this.age + ",\n" +
+                "Marriage status: " + this.marriageStatus(this.isMarried) + ",\n" +
+                "Parenthood status: " + this.parenthoodStatus(this.hasKids) + "\n";
     }
 
     public Human() {

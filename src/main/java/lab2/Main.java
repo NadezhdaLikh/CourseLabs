@@ -11,7 +11,7 @@ public class Main {
         return x == (long) x & x <= Long.MAX_VALUE & x >= Long.MIN_VALUE;
     }
 
-    private static int calculate(Calculator calculator, int x, int y, char op) {
+    private static double calculate(Calculator calculator, int x, int y, char op) {
         return switch (op) {
             case '+' -> calculator.add(x, y);
             case '-' -> calculator.sub(x, y);
@@ -21,7 +21,7 @@ public class Main {
         };
     }
 
-    private static long calculate(Calculator calculator, long x, long y, char op) {
+    private static double calculate(Calculator calculator, long x, long y, char op) {
         return switch (op) {
             case '+' -> calculator.add(x, y);
             case '-' -> calculator.sub(x, y);
@@ -66,19 +66,12 @@ public class Main {
         sc.close();
 
         Human human1 = new Human();
-        System.out.println(human1.getFirstName() + " "
-                + human1.getLastName() + ", "
-                + human1.getSex() + ", "
-                + human1.getAge() + ", "
-                + human1.marriageStatus(human1.getIsMarried()) + ", "
-                + human1.parenthoodStatus(human1.getHasKids()));
+        System.out.println(human1);
 
         Human human2 = new Human("Jane", "Doe", 'f', 30, false, false);
-        System.out.println(human2.getFirstName() + " "
-                + human2.getLastName() + ", "
-                + human2.getSex() + ", "
-                + human2.getAge() + ", "
-                + human2.marriageStatus(human1.getIsMarried()) + ", "
-                + human2.parenthoodStatus(human1.getHasKids()));
+        System.out.println(human2);
+
+        human2.setIsMarried(true);
+        System.out.println(human2);
     }
 }

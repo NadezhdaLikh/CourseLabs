@@ -7,21 +7,29 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         // Task  1
-        String text = sc.nextLine();
-        findLongestWord(text);
+        String text = sc.nextLine(); // Hello! My name is Nadezhda, I am from Russia.
+        System.out.println(findLongestWord(text));
 
         // Task 2
         String word = sc.nextLine();
         System.out.println("Является ли данное слово палиндромом? " + checkIfPalindrome(word));
 
         // Task 3
-        String rawText = sc.nextLine();
-        censorText(rawText);
+        System.out.println("Введите строку:");
+        String rawText = sc.nextLine(); // Фу, бяка, брось! Какой ужас! Бяка!
+
+        System.out.println("Введите слово, которое нужно заменить в строке:");
+        String wordToReplace = sc.nextLine(); // бяка
+
+        System.out.println("Введите замену:");
+        String replaceWith = sc.nextLine(); // [вырезано цензурой]
+
+        System.out.println(censorText(rawText, wordToReplace, replaceWith));
 
         // Task 4
-        String str = sc.nextLine(); // "Java, do you know what OOP is? Java, you must know this stuff!"
+        String str = sc.nextLine(); // Java, do you know what OOP is? java, you must know this stuff!
         String substr = sc.nextLine(); // Java
-        System.out.println("Количество вхождений подстроки " + substr + " в данную строку - " + countOccurrences(str, substr));
+        System.out.println("Количество вхождений данной подстроки в данную строку - " + countOccurrences(str, substr));
 
         // Task 5
         String originalStr = sc.nextLine(); // This is a test string
@@ -32,7 +40,7 @@ public class Main {
     }
 
     // Task 1
-    private static void findLongestWord(String text) {
+    private static String findLongestWord(String text) {
         if (text != null && !text.isEmpty()) {
             String editedText = text.replaceAll("\\p{Punct}", "");
             char[] charArray = editedText.toCharArray();
@@ -53,37 +61,42 @@ public class Main {
                 }
             }
 
-            System.out.println("Самое длинное слово в тексте - " + editedText.substring(startPos, startPos + max));
+            return editedText.substring(startPos, startPos + max);
         } else {
-            System.out.println("Пустая строка");
+            return "Вы ввели пустую строку!";
         }
     }
 
     // Task 2
     private static boolean checkIfPalindrome(String word) {
-        boolean isPalindrome = false;
+        // String lower = word.toLowerCase();
+        boolean isPalindrome = true;
         int length = word.length();
 
         for (int i = 0; i < length/2; i++) {
-            isPalindrome = word.charAt(i) == word.charAt(length - i - 1);
+            if (isPalindrome) {
+                isPalindrome = word.toLowerCase().charAt(i) == word.toLowerCase().charAt(length - i - 1);
+            } else break;
         }
 
         return isPalindrome;
     }
 
     // Task 3
-    private static void censorText(String text) {
-        System.out.println(text.replaceAll("бяка", "[вырезано цензурой]"));
+    private static String censorText(String text, String wordToReplace, String replacement) {
+        String regex = "(?i)\\b" + wordToReplace + "\\b|(?i)" + wordToReplace + "(?=\\p{Punct})";
+        // String regex = "(?i)\\b" + wordToReplace + "\\b|(?i)\\b" + wordToReplace + "(?=[\\p{Punct}\\s]*$)";
+        return text.replaceAll(regex, replacement);
     }
 
     // Task 4
     private static int countOccurrences(String str, String substr) {
-        String editedStr = str.replaceAll("\\p{Punct}", "");
+        String editedStr = str.toLowerCase().replaceAll("\\p{Punct}", "");
         String[] splitStr = editedStr.split(" ");
 
         int cnt = 0;
         for (String s : splitStr) {
-            if (s.equals(substr)) {
+            if (s.equals(substr.toLowerCase())) {
                 cnt++;
             }
         }

@@ -11,11 +11,7 @@ public class Person {
         this.gender = gender;
     }
 
-    public void printName(){
-        System.out.println("Имя - " + name);
-    }
-
-    public int getAge() {
-        return age;
+    public void printInfo(){
+        System.out.println("Возраст - " + age);
     }
 }

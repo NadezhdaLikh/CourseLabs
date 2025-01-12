@@ -44,7 +44,8 @@ public class Main {
         dog.printLifespan();
 
         // Task 5
+        // В пятой задаче вам нужно переопределить метод, который в родителе выводит возраст
         Singer singer1 = new Singer("Алиша Бет Мур", 45, 'f', "Pink", "Поп", "US");
-        singer1.printName();
+        singer1.printInfo();
     }
 }

@@ -13,7 +13,7 @@ public class Singer extends Person{
     }
 
     @Override
-    public void printName() {
+    public void printInfo() {
         System.out.println("Имя музыкального исполнителя - " + name);
     }
 }

@@ -9,19 +9,17 @@ public class Airplane {
         this.model = model;
     }
 
-    public class Wing {
+    public static class Wing {
+        private Airplane airplane;
         private int wingWeight; // в тоннах
 
-        public Wing(int weight) {
+        public Wing(Airplane airplane, int weight) {
+            this.airplane = airplane;
             this.wingWeight = weight;
         }
 
-        /*public void getWingWeight() {
-            System.out.println("Вес крыла самолета (в тоннах) - " + wingWeight);
-        }*/
-
         public void printWingWeight() {
-            System.out.println("Вес крыла самолета " + manufacturer + " " + model + " составляет примерно " + wingWeight + " т.");
+            System.out.println("Вес крыла самолета " + airplane.manufacturer + " " + airplane.model + " составляет примерно " + wingWeight + " т.");
         }
 
     }

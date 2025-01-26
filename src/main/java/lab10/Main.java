@@ -32,7 +32,7 @@ public class Main {
         // Task 4
         // Написать метод, который заменяет в файле всё, кроме букв и цифр, на знак ‘$’
         char c = sc.nextLine().charAt(0);
-        replaceCharacter(path1, c);
+        replaceAllExceptLettersAndDigits(path1, c);
     }
 
     private static List<String> readTextFile(Path path) {
@@ -70,7 +70,7 @@ public class Main {
         }
     }
 
-    private static void replaceCharacter(Path path, char c) {
+    private static void replaceAllExceptLettersAndDigits(Path path, char c) {
         String replacement = "\\" + c;
         List<String> result = new ArrayList<>();
 
